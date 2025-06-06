@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #1e1e1e;
+            color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #00ffcc;
+        }
+        .code-block {
+            background-color: #2e2e2e;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            white-space: pre-wrap;
+        }
+        .output {
+            color: #aaaaaa;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #00ffcc;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Примеры кода в консоли</h1>
+
+    <div class="code-block">
+        (config-if): mdix auto
+        <div class="output">включить автоматическое перекрещивание Ethernet кабеля</div>
+    </div>
+
+    <div class="code-block">
+        (config-if): duplex {type}
+        <div class="output">переключение типа дуплекса</div>
+    </div>
+
+    <div class="code-block">
+        (config-if): speed {type}
+        <div class="output">изменение скорости передачи данных на интерфейсе</div>
+    </div>
+    <h2>Базовая настройка оборудования</h2>
+    <div class="code-block">
+        >: enable
+        <div class="output">перейти в привилегированный режим EXEC</div>
+    </div>
+    <div class="code-block">
+        >: ping {ip_address}
+        <div class="output">пингануть ip_address</div>
+    </div>
+    <div class="code-block">
+        >: traceroute {ip_address}
+        <div class="output">посмотреть как пакет идет по сети при пинге {ip_address}</div>
+    </div>
+    <div class="code-block">
+        #: configure terminal
+        <div class="output">перейти в режим глобальной конфигурации</div>
+    </div>
+    <div class="code-block">
+        #: show running-config
+        <div class="output">посмотреть файл текущей конфигурации</div>
+    </div>
+    <div class="code-block">
+        #: show startup-config
+        <div class="output">посмотреть файл загрузочной конфигурации</div>
+    </div>
+    <div class="code-block">
+        #: show ip interface brief
+        <div class="output">показать настройку ipv4 всех интерфейсов на оборудовании</div>
+    </div>
+    <div class="code-block">
+        #: show ipv6 interface brief
+        <div class="output">показать настройку ipv6 всех интерфейсов на оборудовании</div>
+    </div>
+    <div class="code-block">
+        #: show running-config interface {interface_name}
+        <div class="output">просмотр настроек интерфейса</div>
+    </div>
+    <div class="code-block">
+        #: show history
+        <div class="output">показать историю вводимых команд</div>
+    </div>
+    <div class="code-block">
+        #: copy {from_file} {to_file}
+        <div class="output">копирование содержимого from_file в to_file</div>
+    </div>
+    <div class="code-block">
+        #: erase startup-config
+        <div class="output">очистить файл загрузочной конфигурации</div>
+    </div>
+    <div class="code-block">
+        #: reload
+        <div class="output">перезагрузка устройства</div>
+    </div>
+    <div class="code-block">
+        (config): hostname {hostname}
+        <div class="output">изменить имя устройства</div>
+    </div>
+    <div class="code-block">
+        (config): no hostname {hostname}
+        <div class="output">удалить имя устройства</div>
+    </div>
+    <div class="code-block">
+        (config): line console 0
+        <div class="output">перейти в режим настройки командной строки</div>
+    </div>
+    <div class="code-block">
+        (config): line vty {from_index} {to_index}
+        <div class="output">перейти в режим настройки линий VTY (виртуальных терминальных линий)</div>
+    </div>
+    <div class="code-block">
+        (config): interface {interface_name}
+        <div class="output">перейти в режим настройки интерфейса</div>
+    </div>
+    <div class="code-block">
+        (config): service password-encryption
+        <div class="output">включить шифрование паролей в файле текущей конфигурации</div>
+    </div>
+    <div class="code-block">
+        (config): enable secret {password}
+        <div class="output">задать пароль для привилегированного режима EXEC</div>
+    </div>
+    <div class="code-block">
+        (config): no ip domain-lookup
+        <div class="output">отключение разрешения доменного имени</div>
+    </div>
+    <div class="code-block">
+        (config-line): password {password}
+        <div class="output">задать пароль для пользовательского режима EXEC</div>
+    </div>
+    <div class="code-block">
+        (config-line): login
+        <div class="output">применить пароль (обязательно перед этим задать какой-то пароль)</div>
+    </div>
+    <div class="code-block">
+        (config-line): logging sunchronous
+        <div class="output">синхронизация логирования</div>
+    </div>
+    <div class="code-block">
+        (config-if): ip address {ip_address} {subnet_mask}
+        <div class="output">настройка IP-адреса на интерфейсе</div>
+    </div>
+    <div class="code-block">
+        (config-if): no shutdown
+        <div class="output">включение интерфейса (по умолчанию все выключены)</div>
+    </div>
+    <div class="code-block">
+        (любой режим): exit
+        <div class="output">перейти в предыдущий по иерархии режим</div>
+    </div>
+    <div class="code-block">
+        (любой режим): end
+        <div class="output">перейти в привилегированный режим EXEC</div>
+    </div>
+
+    <h2>Введение в маршрутизацию</h2>
+    <div class="code-block">
+        #: show ip route
+        <div class="output">просмотр таблицы ipv4 маршрутизации</div>
+    </div>
+    <div class="code-block">
+        #: show ipv6 route
+        <div class="output">просмотр таблицы ipv6 маршрутизации</div>
+    </div>
+    <div class="code-block">
+        (config): ip route {subnet} {subnet_mask} {ip-address | exit-intf} [distance]
+        <div class="output">создание статического ipv4 маршрута для сети subnet с административным расстоянием distance</div>
+    </div>
+    <div class="code-block">
+        (config): ipv6 route {subnet}/{prefix-length} {ip-address | exit-intf} [distance]
+        <div class="output">создание статического ipv6 маршрута для сети subnet с административным расстоянием distance</div>
+    </div>
+    <div class="code-block">
+        (config): interface loopback {number}
+        <div class="output">создать loopback интерфейс</div>
+    </div>
+    <div class="code-block">
+        (config-if): ipv6 address {ipv6_address}/{prefix_length}
+        <div class="output">настройка ipv6 адреса на интерфейсе</div>
+    </div>
+    <div class="code-block">
+        (config-if): description {description}
+        <div class="output">задать описание для интерфейса</div>
+    </div>
+
+    <h2>Маршрутизация</h2>
+    <div class="code-block">
+        #: show ip protocols
+        <div class="output">просмотр настроек протоколов маршрутизации</div>
+    </div>
+    <div class="code-block">
+        (config): router rip
+        <div class="output">перейти в режим настройки RIP</div>
+    </div>
+    <div class="code-block">
+        (config): passive-interface default
+        <div class="output">сделать все интерфейсы пассивными</div>
+    </div>
+    <div class="code-block">
+        (config-if): no passive-interface
+        <div class="output">сделать интерфейс активным (по умолчанию)</div>
+    </div>
+    <div class="code-block">
+        (config-router): version 2
+        <div class="output">перейти к RIPv2 (по умолчанию используется RIP первой версии)</div>
+    </div>
+    <div class="code-block">
+        (config-router): network {network}
+        <div class="output">указать, о какой сети рассказывать другим маршрутизаторам через RIP</div>
+    </div>
+    <div class="code-block">
+        (config-router): no auto-summary
+        <div class="output">отключить объединение сетей в классовые суперсети в таблице маршрутизации</div>
+    </div>
+    <div class="code-block">
+        (config-router): passive-interface {interface_name}
+        <div class="output">сделать интерфейс пассивным</div>
+    </div>
+    <div class="code-block">
+        (config-router): default-information originate
+        <div class="output">включить маршрут по умолчанию в распространяемую RIP информацию</div>
+    </div>
+
+    <h2>IP-адресация</h2>
+    <div class="code-block">
+        (config): ipv6 unicast-routing
+        <div class="output">включение маршрутизации IPv6</div>
+    </div>
+    <div class="code-block">
+        (config-if): ipv6 address {ipv6_address} link-local
+        <div class="output">настройка link-local ipv6 адреса на интерфейсе</div>
+    </div>
+
+    <h2>DHCP</h2>
+    <div class="code-block">
+        #: show ip dhcp binding
+        <div class="output">посмотреть привязки выдданых Ipv4 адресов клиентам с их MAC-адресами</div>
+    </div>
+    <div class="code-block">
+        #: show ip dhcp server statistics
+        <div class="output">посмотреть статистику работы dhcp сервера</div>
+    </div>
+    <div class="code-block">
+        #: show ipv6 dhcp pool
+        <div class="output">посмотреть настройки пулов ipv6 адресов</div>
+    </div>
+    <div class="code-block">
+        #: show ipv6 shcp binding
+        <div class="output">посмотреть привязки ipv6 адресов клиентам</div>
+    </div>
+    <div class="code-block">
+        (config): ip dhcp excluded-address {from_ip_address} {to_ip_address}
+        <div class="output">исключить диапазон ipv4 адресов из раздачи</div>
+    </div>
+    <div class="code-block">
+        (config): ip dhcp pool {pool_name}
+        <div class="output">создать dhcpv4 пул</div>
+    </div>
+    <div class="code-block">
+        (config): ipv6 dhcp pool {pool_name}
+        <div class="output">создать dhcpv6 пул</div>
+    </div>
+    <div class="code-block">
+        (config): no service dhcp
+        <div class="output">отключение dhcp сервера</div>
+    </div>
+    <div class="code-block">
+        (config): service dhcp
+        <div class="output">включение dhcp сервера (по умолчанию)</div>
+    </div>
+    <div class="code-block">
+        (config-if): ip helper-address {ip_address}
+        <div class="output">настройка ретрансляции на интерфейсе (для DNS и DHCP серверов в других сетях)</div>
+    </div>
+    <div class="code-block">
+        (config-if): ipv6 dhcp relay destination {ipv6_address} {exit_intf}
+        <div class="output">настройка ipv6 ретрансляции на интерфейсе</div>
+    </div>
+    <div class="code-block">
+        (config-if): ip address dhcp
+        <div class="output">настройка интерфейса в качестве DHCP-клиента (для получения IPv4 адреса через DHCP)</div>
+    </div>
+    <div class="code-block">
+        (config-if): ipv6 nd other-config-flag
+        <div class="output">установка флага O в Router Advertisement сообщении маршутизатора (для работы в SLAAC + DHCPv6 режиме) (он же Stateless DHCPv6)</div>
+    </div>
+    <div class="code-block">
+        (config-if): ipv6 nd managed-config-flag
+        <div class="output">установка флага M в Router Advertisement сообщении маршутизатора (для работы в DHCPv6 режиме) (он же Stateful DHCPv6)</div>
+    </div>
+    <div class="code-block">
+        (config-if): ipv6 nd prefix default no-autoconfig
+        <div class="output">убрать флаг A в Router Advertisement сообщении маршутизатора (для работы в DHCPv6 режиме) (он же Stateful DHCPv6)</div>
+    </div>
+    <div class="code-block">
+        (config-if): ipv6 dhcp server {pool_name}
+        <div class="output">привязать ipv6 пул к интерфейсу</div>
+    </div>
+    <div class="code-block">
+        (config-if): ipv6 enable
+        <div class="output">сгенерировать link-local ipv6 адрес на интерфейсе</div>
+    </div>
+    <div class="code-block">
+        (config-if): ipv6 address autoconfig
+        <div class="output">получить ipv6 адрес через SLAAC</div>
+    </div>
+    <div class="code-block">
+        (config-if): dhcp ipv6 address
+        <div class="output">настроить получение ipv6 адреса через Stateful DHCPv6</div>
+    </div>
+    <div class="code-block">
+        (dhcp-config): network {network} {network_mask}
+        <div class="output">задать пул ipv4 адресов для выдачи</div>
+    </div>
+    <div class="code-block">
+        (dhcp-config): default-router {ip_address}
+        <div class="output">задать шлюз по умолчанию</div>
+    </div>
+    <div class="code-block">
+        (dhcp-config): domain-name {domain_name}
+        <div class="output">задать доменное имя</div>
+    </div>
+    <div class="code-block">
+        (dhcp-config): lease {days [hours [minutes]] | infinite}
+        <div class="output">задать время аренды IP-адреса</div>
+    </div>
+    <div class="code-block">
+        (config-dhcpv6): dns-server {ipv6-address}
+        <div class="output">настройка dns сервера</div>
+    </div>
+    <div class="code-block">
+        (config-dhcpv6): domain-name {domain_name}
+        <div class="output">задать доменное имя</div>
+    </div>
+    <div class="code-block">
+        (config-dhcpv6): address prefix {prefix}/{prefix_length}
+        <div class="output">задать префикс для выдачи ipv6 адресов</div>
+    </div>
+
+    <h2>Управление устройствами</h2>
+    <div class="code-block">
+        #: show cdp neighbors
+        <div class="output">просмотр таблицы с инфомрацией о соседях</div>
+    </div>
+    <div class="code-block">
+        #: show lldp neighbors
+        <div class="output">просмотр таблицы с инфомрацией о соседях</div>
+    </div>
+    <div class="code-block">
+        #: show cdp neighbors detail
+        <div class="output">просмотр инфомрации о соседях более подробно</div>
+    </div>
+    <div class="code-block">
+        #: show lldp neighbors detail
+        <div class="output">просмотр инфомрации о соседях более подробно</div>
+    </div>
+    <div class="code-block">
+        #: show cdp
+        <div class="output">просмотр настроек cdp протокола</div>
+    </div>
+    <div class="code-block">
+        #: show lldp
+        <div class="output">просмотр настроек lldp протокла</div>
+    </div>
+    <div class="code-block">
+        #: clock set hh:mm:ss
+        <div class="output">задание времени на устройстве</div>
+    </div>
+    <div class="code-block">
+        #: show clock
+        <div class="output">просмотр текущего времени и его настроек</div>
+    </div>
+    <div class="code-block">
+        #: show clock detail
+        <div class="output">просмотр текущего времени и его настроек более подробно</div>
+    </div>
+    <div class="code-block">
+        #: show ntp associations
+        <div class="output">просмотр таблицы с информацией о работе ntp</div>
+    </div>
+    <div class="code-block">
+        #: show ntp status
+        <div class="output">просмотр информации об ntp</div>
+    </div>
+    <div class="code-block">
+        #: show logging
+        <div class="output">просмотр журнала сообщений</div>
+    </div>
+    <div class="code-block">
+        (config): no cdp run
+        <div class="output">отключение cdp протокола</div>
+    </div>
+    <div class="code-block">
+        (config): cdp run
+        <div class="output">включение cdp протокола (по умолчанию)</div>
+    </div>
+    <div class="code-block">
+        (config): lldp run
+        <div class="output">включение lldp протокола</div>
+    </div>
+    <div class="code-block">
+        (config): ntp server {ip_address}
+        <div class="output">настройка сервера ntp</div>
+    </div>
+    <div class="code-block">
+        (config): ntp master [stratum]
+        <div class="output">указать, что это ntp сервер уровня stratum</div>
+    </div>
+    <div class="code-block">
+        (config): service timestamps log datetime
+        <div class="output">включение меток времени в log сообщениях</div>
+    </div>
+    <div class="code-block">
+        (config): logging console
+        <div class="output">вывод журнала событий на консоль (по умолчанию)</div>
+    </div>
+    <div class="code-block">
+        (config): logging buffered
+        <div class="output">сохранение журнала событий в буфер</div>
+    </div>
+    <div class="code-block">
+        (config): logging {host_ip}
+        <div class="output">настройка адресата для отправки событий</div>
+    </div>
+    <div class="code-block">
+        (config): logging trap {level}
+        <div class="output">настройка на уровень опасности отправляемых на сервер сообщений (будут отправляться <= level)</div>
+    </div>
+    <div class="code-block">
+        (config): logging source-interface {interface_name}
+        <div class="output">настройка интерфейса источника</div>
+    </div>
+    <div class="code-block">
+        (config-if): no cdp enable
+        <div class="output">отключение отправки cdp сообщений по этому интерфейсу</div>
+    </div>
+    <div class="code-block">
+        (config-if): cdp enable
+        <div class="output">включение отправки cdp сообщений по этому интерфейсу (по умолчанию)</div>
+    </div>
+    <div class="code-block">
+        (config-if): lldp transmit
+        <div class="output">включение отправки lldp сообщений по этому интерфейсу</div>
+    </div>
+    <div class="code-block">
+        (config-if): lldp receive
+        <div class="output">включение принятия lldp сообщений по этому интерфейсу</div>
+    </div>
+    <div class="code-block">
+        (config-if): ntp broadcast
+        <div class="output">включить отправку ntp сообщений на этом интерфейсе</div>
+    </div>
+
+    <h2>Обслуживание устройств</h2>
+    <div class="code-block">
+        Rommon> confreg 0x2142
+        <div class="output">положить специальное значение в регистр конфигурации</div>
+    </div>
+    <div class="code-block">
+        Rommon> reset
+        <div class="output">перезагрузка устройства</div>
+    </div>
+    <div class="code-block">
+        #: show version
+        <div class="output">посмотреть версию IOS</div>
+    </div>
+    <div class="code-block">
+        #: show file systems
+        <div class="output">просмотр файловой системы</div>
+    </div>
+    <div class="code-block">
+        #: dir
+        <div class="output">список файлов в текущей директории</div>
+    </div>
+    <div class="code-block">
+        #: cd {dir}
+        <div class="output">смена директории</div>
+    </div>
+    <div class="code-block">
+        #: copy {file} tftp
+        <div class="output">резервное копирование фала через tftp</div>
+    </div>
+    <div class="code-block">
+        (config): config-register 0x2102
+        <div class="output">положить специальное значение в регистр конфигурации</div>
+    </div>
+
+    <h2>VLAN</h2>
+    <div class="code-block">
+        #: delete flash:vlan.dat
+        <div class="output">удалить все настроенные vlan с 1 по 1001</div>
+    </div>
+    <div class="code-block">
+        #: show vlan brief
+        <div class="output">просмотр настроек vlan и принадлежности портов к vlan</div>
+    </div>
+    <div class="code-block">
+        #: show vlan summary
+        <div class="output">просмотр статистики по vlan</div>
+    </div>
+    <div class="code-block">
+        #: show vlan name {vlan_name}
+        <div class="output">просмотр информации о конкретном vlan</div>
+    </div>
+    <div class="code-block">
+        #: show interfaces {interface_name} switchport
+        <div class="output">просмотр информации о настройке vlan на интерфейсе</div>
+    </div>
+    <div class="code-block">
+        #: show interfaces trunk
+        <div class="output">показать список и настройки trunk портов</div>
+    </div>
+    <div class="code-block">
+        (config): vlan {id}
+        <div class="output">создание vlan</div>
+    </div>
+    <div class="code-block">
+        (config): no vlan {id}
+        <div class="output">удаление vlan</div>
+    </div>
+    <div class="code-block">
+        (config-if): switchport mode access
+        <div class="output">перевести vlan в режим для приема данных</div>
+    </div>
+    <div class="code-block">
+        (config-if): switchport access vlan {id}
+        <div class="output">ассоциировать порт с vlan с заданным id</div>
+    </div>
+    <div class="code-block">
+        (config-if): switchport voice vlan {id}
+        <div class="output">ассоциировать порт с голосовым vlan с заданным id</div>
+    </div>
+    <div class="code-block">
+        (config-if): no switchport access vlan
+        <div class="output">вернуть порт в vlan по умолчанию (в vlan 1)</div>
+    </div>
+    <div class="code-block">
+        (config-if): switchport mode trunk
+        <div class="output">перевести порт в состояние trunk порта</div>
+    </div>
+    <div class="code-block">
+        (config-if): switchport trunk encapsulation dot1q
+        <div class="output">включить информацию об id vlan в кадр Ethernet</div>
+    </div>
+    <div class="code-block">
+        (config-if): switchport trunk native vlan {id}
+        <div class="output">ассоциировать порт с native vlan</div>
+    </div>
+    <div class="code-block">
+        (config-if): no switchport trunk native vlan
+        <div class="output">сброс native vlan на порту</div>
+    </div>
+    <div class="code-block">
+        (config-if): switchport trunk allowed vlan {vlan1, vlan2, …}
+        <div class="output">задать список допустимых vlan на этом порту</div>
+    </div>
+    <div class="code-block">
+        (config-if): no switchport trunk allowed vlan
+        <div class="output">сброс настроек по допустимым vlan на этом порту</div>
+    </div>
+    <div class="code-block">
+        (config-vlan): name {name}
+        <div class="output">задать имя для vlan</div>
+    </div>
+
+    <h2>Команды Windows</h2>
+    <div class="code-block">
+        ipconfig
+        <div class="output">посмотреть настройки IP</div>
+    </div>
+    <div class="code-block">
+        ipconfig /all
+        <div class="output">вывести больше информации о настройке IP</div>
+    </div>
+    <div class="code-block">
+        route print
+        <div class="output">вывести таблицу маршрутизации на хосте</div>
+    </div>
+    <div class="code-block">
+        netstat -r
+        <div class="output">вывести таблицу маршрутизации</div>
+    </div>
+
+    <a href="index.html" class="back-link">← Назад к тесту</a>
+</div>
+</body>
+</html>
